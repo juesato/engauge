@@ -48,13 +48,13 @@
 
 					    <div class=\"panel-heading\">
 					      <h4 class=\"panel-title\">
-					        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
+					        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\".collapse{$row['id']}\">
 					          {$row["topic"]}
 					        </a>
 					      </h4>
 					    </div>
 
-					    <div id=\"collapse{$row['id']}\" class=\"panel-collapse collapse\">
+					    <div class=\"collapse{$row['id']}\" class=\"panel-collapse collapse\">
 					      <div class=\"panel-body\">
 					      	{$row["text"]}
 				      	  </div> 
@@ -77,8 +77,34 @@
 					      	</div>
 					    	"
 						);	  
-					}
+					}	
 				}
+
+				echo ( "
+					<div class=\"collapse{$row['id']}\" class=\"panel-collapse collapse\">
+					    <div class=\"panel-body\">
+	<form action=\"../public/add_answer.php\" method=\"post\">
+	    <fieldset>
+
+	        <div class=\"form-group\">
+	            <textarea class=\"form-control width-full\" rows=\"5\" name=\"text\" /> </textarea>
+	        </div>
+
+	        <div>
+				<label class=\"checkbox-inline\">
+				  <input type=\"checkbox\" id=\"inlineCheckbox1\" value=\"anon\"> Post Anonymously
+				</label>
+			</div>
+
+	        <div class=\"form-group\">
+	            <button type=\"submit\" class=\"btn btn-success\">Add Answer</button>
+	        </div>
+
+	    </fieldset>
+	</form>
+				      	</div>
+				    </div>
+				");
 				// close divs!
 				echo("</div></div>");
 
