@@ -34,6 +34,7 @@
 
 	<div class="container">
 
+		<!-- add question form -->
 		<form action="../public/add_question.php" method="post">
 		    <fieldset>
 		        <div class="form-group col-lg-2">
