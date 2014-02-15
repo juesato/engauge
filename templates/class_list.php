@@ -8,9 +8,13 @@
 		$class_id = $_GET['class_id'];
 		echo $class_id;
 
-		// if ($class_id > 0) {
-		// 	redirect("classroom.php");
-		// }		
+		foreach ($_GET as $key => $value) {
+		    echo "Key: $key; Value: $value\n";
+		}
+
+		if ($class_id > 0) {
+			redirect("classroom.php?class_id=$class_id");
+		}		
 	}
 
 
