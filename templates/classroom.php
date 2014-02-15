@@ -95,6 +95,25 @@
 					// dump($rows);
 					if ($rows !== false && count($rows) > 0) {
 						foreach($rows as $row) {
+							// echo ( "
+							// 	<div class=\"panel-group\" id=\"accordion\">
+							// 	  <div class=\"panel panel-default\">
+							// 	    <div class=\"panel-heading\">
+							// 	      <h4 class=\"panel-title\">
+							// 	        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
+							// 	          jon is the best.
+							// 	        </a>
+							// 	      </h4>
+							// 	    </div>
+							// 	    <div id="collapseTwo" class="panel-collapse collapse in">
+							// 	      <div class="panel-body">
+							// 	        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+							// 	      </div>
+							// 	    </div>
+							// 	  </div>
+							// 	</div> "
+
+							// )
 
 							echo("<div> Topic is {$row["topic"]} </div>");
 							echo("<div> Question: {$row["text"]} </div>");
@@ -102,6 +121,12 @@
 							// $str = "<td><a href=\"classroom.php?class_id={$row["id"]}\" class=\"btn btn-success\">Enter Class</a></td>";
 							// echo ( $str );
 							// echo("</tr>");
+							$answers = query("SELECT * FROM answers WHERE question_id={$row["id"]} ");
+							if ($answers !== false && count($answers) > 0) {
+								foreach ($answers as $answer) {
+									echo(" <div> Answer: {$answer["text"]} </div> ");
+								}
+							}
 						}
 					}
 				?>
