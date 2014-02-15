@@ -124,7 +124,7 @@
                 // console.log(PASSWORD);
 
                 // $handle = new PDO("mysql:dbname=" . DATABASE . ";host=" . SERVER, USERNAME, PASSWORD);
-                $handle = new PDO("mysql:dbname=prepenndb;host=localhost", "juesato", "a");
+                $handle = new PDO("mysql:dbname=penndb;host=localhost", "a", "a");
 
                 // ensure that PDO::prepare returns false when passed invalid SQL
                 $handle->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); 
