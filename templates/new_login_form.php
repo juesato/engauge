@@ -17,9 +17,7 @@
         <link href="../public/css/signin.css" rel="stylesheet">
     </head>
     <body>
-
         <div class = "container">
-
             <form class="form-signin" role="form" action="../public/login.php" method="post">
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <fieldset>
