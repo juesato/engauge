@@ -32,7 +32,7 @@
                 $_SESSION["id"] = $row["id"];
 
                 // redirect to portfolio
-                redirect("/");
+                redirect("/../pennApps14/templates/class_list.php");
             }
         }
 
