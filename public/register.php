@@ -1,0 +1,50 @@
+<?php
+
+    // configuration
+    require("../includes/config.php");
+
+    // if form was submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        // TODO
+        if (!isset($_POST["username"])) {
+            printf("Please enter a username you idiot");
+        }
+        elseif (!isset($_POST["password"])) {
+            printf("Enter a password");
+        }
+        elseif ($_POST["password"] != $_POST["confirmation"]) {
+            printf("Passwords must match");
+        }
+        else {
+<<<<<<< HEAD
+            $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
+=======
+            $wtf = query("INSERT INTO users (username, user_type, password) VALUES(?, ?, ?)", $_POST["username"], "student", $_POST["password"]);
+>>>>>>> 7add64686facccc384bb9776d8537a7a15f7ac0a
+            if ($wtf === false) {
+                echo("Sorry, user already exists");
+                // print $wtf;
+            }
+            else {
+                $rows = query("SELECT LAST_INSERT_ID() AS id");
+                $id = $rows[0]["id"];
+                printf("Thanks for registering!");
+            }
+            // print $wtf;
+        }
+    }
+    else
+    {
+        // else render form
+        render("register_form.php", ["title" => "Register"]);
+    }
+
+?>
+<html>
+<a href="../templates/register_form.php">Register Form</a>
+<!-- <html>
+<h1>
+    Thanks for signing up!
+</h1>
+</html> -->
