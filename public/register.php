@@ -20,7 +20,7 @@
             // $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
             $wtf = query("INSERT INTO users (username, user_type, password) VALUES(?, ?, ?)", $_POST["username"], "student", $_POST["password"]);
             if ($wtf === false) {
-                echo("Sorry, user already exists");
+                apologize("That username already exists");
                 // print $wtf;
             }
             else {
@@ -37,5 +37,4 @@
         // else render form
         render("register_form.php", ["title" => "Register"]);
     }
-
 ?>

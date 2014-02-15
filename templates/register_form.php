@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../public/boot/favicon.ico">
 
-        <title>Register an account</title>
+        <title>Registration</title>
 
         <!-- Bootstrap core CSS -->
         <link href="../public/boot/bootstrap.css" rel="stylesheet">
@@ -20,8 +20,13 @@
     <body>
         <div class = "container">
             <form class = "form-register" role = "form" action="../public/register.php" method="post">
-                <h2 class="form-register-heading">Register Now!</h2>
+                <h2 class="form-register-heading">Register an Account   </h2>
                 <fieldset>
+                    <div class="form-radio">
+                        <input type="radio" name="user_type" value="student"> Student
+                        <input type="radio" name="user_type" value="TA"> TA
+                        <input type="radio" name="user_type" value="professor"> Professor
+                    </div>
                     <div class="form-group">
                         <input autofocus class="form-control" name="username" placeholder="Username" type="text"/>
                     </div>
@@ -29,9 +34,9 @@
                         <input class="form-control" name="password" placeholder="Password" type="password"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" name="confirmation" placeholder="Password again" type="confirmation"/>
+                        <input class="form-control" name="confirmation" placeholder="Password again" type="password"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-button">
                         <button type="submit" class="btn btn-lg btn-primary btn-block">Register Now!</button>
                     </div>
                 </fieldset>

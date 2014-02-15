@@ -32,3 +32,17 @@
     /* surround with whitespace */
     margin: 20px;
 }
+
+.lead_text_danger
+{
+    font-size: 50px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.text_danger
+{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
