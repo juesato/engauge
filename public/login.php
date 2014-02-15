@@ -26,10 +26,6 @@
             $row = $rows[0];
 
             // compare hash of user's input against hash that's in database
-<<<<<<< HEAD
-            // if (crypt($_POST["password"], $row["password"]) == $row["password"])
-=======
->>>>>>> 5aa668a9cf119044edadc32e6b24aee0deff8f83
             if ($_POST["password"] == $row["password"])
             {
                 // remember that user's now logged in by storing user's ID in session
@@ -46,7 +42,7 @@
     else
     {
         // else render form
-        render("login_form.php", ["title" => "Log In"]);
+        render("new_login_form.php", ["title" => "Log In"]);
     }
 
 ?>

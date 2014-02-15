@@ -15,32 +15,8 @@
 
         <!-- Custom styles for this template -->
         <link href="../public/css/signin.css" rel="stylesheet">
-
-        <!-- Just for debugging purposes. Don't actually copy this line! -->
-        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
-<!--
-        <div class="container">
-
-            <form class="form-signin" role="form">
-                <h2 class="form-signin-heading">Please sign in</h2>
-                <input type="email" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" required>
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            </form>
-
-        </div>
--->
 
         <div class = "container">
 
@@ -58,9 +34,7 @@
                     </div>
                 </fieldset>
             </form>
-        </div> <!-- /container -->
-
-
+        </div>
 
         <div class = "footer-signin">
             or <a href="../public/register.php">register</a> for an account
