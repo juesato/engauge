@@ -26,7 +26,7 @@
             $row = $rows[0];
 
             // compare hash of user's input against hash that's in database
-            if (crypt($_POST["password"], $row["password"]) == $row["password"])
+            // if (crypt($_POST["password"], $row["password"]) == $row["password"])
             if ($_POST["password"] == $row["password"])
             {
                 // remember that user's now logged in by storing user's ID in session
