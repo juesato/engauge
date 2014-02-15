@@ -21,7 +21,7 @@
 
         // if we found user, check password
         if (count($rows) == 1)
-        {g
+        {
             // first (and only) row
             $row = $rows[0];
 
