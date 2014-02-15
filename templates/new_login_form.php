@@ -48,7 +48,7 @@
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <fieldset>
                     <div class="form-group">
-                        <input autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+                        <input autofocus class="form-control" name="username" placeholder="Username" type="username"/>
                     </div>
                     <div class="form-group">
                         <input class="form-control" name="password" placeholder="Password" type="password"/>
