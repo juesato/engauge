@@ -3,22 +3,8 @@
 
 <?php
 	require("../includes/config.php");
-	if (array_key_exists('class_id', $_GET)) {
-
-		$class_id = $_GET['class_id'];
-		echo $class_id;
-
-		foreach ($_GET as $key => $value) {
-		    echo "Key: $key; Value: $value\n";
-		}
-
-		if ($class_id > 0) {
-			redirect("classroom.php?class_id=$class_id");
-		}		
-	}
-
-
 ?>
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -76,7 +62,7 @@
 					if ($rows !== false && count($rows) > 0) {
 						foreach($rows as $row) {
 							echo ("<tr><td>{$row["id"]}</td><td>{$row["subject"]}</td><td>{$row["prof"]}</td>");
-							$str = "<td><a href=\"?class_id={$row["id"]}\" class=\"btn btn-success\">Enter Class</a></td>";
+							$str = "<td><a href=\"classroom.php?class_id={$row["id"]}\" class=\"btn btn-success\">Enter Class</a></td>";
 							echo ( $str );
 							echo("</tr>");
 						}
