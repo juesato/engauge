@@ -11,23 +11,6 @@
 
 ?>
 
-
-<!-- <form action="../public/add_question.php" method="post">
-    <fieldset>
-        <div class="form-group">
-            <input autofocus class="form-control" name="topic" placeholder="Topic" type="text"/>
-        </div>
-
-        <div class="form-group">
-            <input class="form-control" name="question" placeholder="Question" type="text"/>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-    </fieldset>
-</form>
- -->
 <html>
 <body>
 
@@ -58,7 +41,7 @@
 
 				$num_ans = count($answers);
 
-
+				echo ("HELLO {$row["text"]}");
 				echo ( "
 					<div class=\"panel-group\" id=\"accordion\">
 					  <div class=\"panel panel-default\">
@@ -82,19 +65,22 @@
 						  </div>
 					    </div>
 
-					  </div>
 					"
 				);
 				if ($answers !== false && count($answers) > 0) {
 					foreach ($answers as $answer) {
-						echo ( "<div class=\"ans{$row["id"]}\" class=\"collapse in\">
-								blahblah
-								{$answer["text"]}
-							  </div>"
+						echo ( "
+							<div class=\"ans{$row["id"]}\" class=\"panel-collapse collapse\">
+						      <div class=\"panel-body\">
+						      	{$answer["text"]}
+					      	  </div>
+					      	</div>
+					    	"
 						);	  
 					}
 				}
-				echo("</div>");
+				// close divs!
+				echo("</div></div>");
 
 				
 			}
@@ -112,7 +98,7 @@
 	        <div class="form-group">
 	            <textarea class="form-control width-full" rows="8" name="question" /> </textarea>
 	        </div>
-	        
+
 	        <div>
 				<label class="checkbox-inline">
 				  <input type="checkbox" id="inlineCheckbox1" value="anon"> Post Anonymously
