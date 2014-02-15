@@ -83,11 +83,11 @@
 				echo ( "
 					<div class=\"collapse{$row['id']}\" class=\"panel-collapse collapse\">
 					    <div class=\"panel-body\">
-	<form action=\"../public/add_answer.php\" method=\"post\">
+	<form action=\"../public/add_answer.php?question_id={$row["id"]}\" method=\"post\">
 	    <fieldset>
 
 	        <div class=\"form-group\">
-	            <textarea class=\"form-control width-full\" rows=\"5\" name=\"text\" /> </textarea>
+	            <textarea class=\"form-control width-full\" rows=\"5\" name=\"answer\" /> </textarea>
 	        </div>
 
 	        <div>

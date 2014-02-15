@@ -2,7 +2,8 @@
     // configuration
     require("../includes/config.php");
 
-    // if form was submitted
+    $_SESSION["question_id"] = $_GET["question_id"];
+    // if form was submitted;
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // TODO
