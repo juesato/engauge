@@ -14,7 +14,6 @@
     <link href="../public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../public/css/navbar.css" rel="stylesheet">
     <script src="../public/js/bootstrap.js"></script>
 
   </head>
@@ -69,7 +68,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             	<a class="btn btn-lg btn-primary" href="../templates/class_list.php" role="button">Back to Class List &raquo;</a>
-
+            	<a class="btn btn-lg btn-danger" href="../public/logout.php">Logout</a>
               <!--<li class="active"><a href="./">Default</a></li>
               <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li>-->	
