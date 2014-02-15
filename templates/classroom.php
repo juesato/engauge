@@ -42,7 +42,7 @@
 
 		        <div class="form-group">
 		            <!-- <input class="form-control" name="question" placeholder="Question" type="text"/> -->
-		            <textarea class="form-control width-full" rows="8" name="question"/>
+		            <textarea class="form-control width-full" rows="8" name="question" /> </textarea>
 
 		        </div>
 		        <div>
