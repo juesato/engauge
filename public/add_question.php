@@ -11,10 +11,10 @@
             apologize("Please enter a topic.");
         }
 
-        if (!isset($_POST["question"]))
-        {
-            apologize("Please enter a question.");
-        }
+        // if (!isset($_POST["question"]))
+        // {
+        //     apologize("Please enter a question.");
+        // }
 
         if (!isset($_SESSION["class_id"]))
         {
