@@ -32,7 +32,9 @@
 
         if (false !== query("INSERT INTO answers (question_id, answerer_id, text, datetime) VALUES (?, ?, ?, ?)", $_SESSION["question_id"], $_SESSION["id"], $_POST["answer"], $parse_date))
         {
-            printf("Answer added.");
+            printf("Answer added.\n");
+            echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
+            redirect("../templates/classroom.php?class_id={$_SESSION["class_id"]}");
         }
 
         else

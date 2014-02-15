@@ -41,7 +41,6 @@
 
 				$num_ans = count($answers);
 
-				echo ("HELLO {$row["text"]}");
 				echo ( "
 					<div class=\"panel-group\" id=\"accordion\">
 					  <div class=\"panel panel-default\">
@@ -63,7 +62,7 @@
 							  Show {$num_ans} Answers
 							</button>
 						  </div>
-					    </div>
+					    
 
 					"
 				);
@@ -106,18 +105,20 @@
 				    </div>
 				");
 				// close divs!
-				echo("</div></div>");
+				echo("</div></div></div>");
 
 				
 			}
 		}
 	?>
 
-
+	<hr>
 	<!-- add question form -->
+<div class="dark-bg">
+	<h2> Add a Question </h2>
 	<form action="../public/add_question.php" method="post">
 	    <fieldset>
-	        <div class="form-group col-lg-2">
+	        <div class="form-group">
 	            <input autofocus class="form-control width-full" name="topic" placeholder="Post Question Here" type="text"/>
 	        </div>
 
@@ -138,5 +139,6 @@
 	</form>
 </div>
 
+</div>
 </body>
 </html>

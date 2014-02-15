@@ -28,6 +28,8 @@
         if (false !== query("INSERT INTO questions (class_id, asker_id, text, topic, datetime) VALUES (?, ?, ?, ?, ?)", $_SESSION['class_id'], $_SESSION["id"], $_POST["question"], $_POST["topic"], $parse_date))
         {
             printf("Question added to class {$_SESSION['class_id']}.");
+            echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
+            redirect("../templates/classroom.php?class_id={$_SESSION["class_id"]}");
         }
 
         else
