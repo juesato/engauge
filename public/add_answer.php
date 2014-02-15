@@ -7,7 +7,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // TODO
-        if (!isset($_POST["answer"]))
+        if (!isset($_POST["text"]) || !(strlen($_POST["text"]) > 0)) 
         {
             apologize("Please submit an answer.");
         }
