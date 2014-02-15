@@ -7,7 +7,10 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // TODO
-        if (!isset($_POST["text"]) || !(strlen($_POST["text"]) > 0)) 
+        // $len = strlen($_POST["answer"]);
+        // echo $len;
+        // dump($_POST);
+        if (!isset($_POST["answer"]) || strlen($_POST["answer"]) <= 1) 
         {
             apologize("Please submit an answer.");
         }
