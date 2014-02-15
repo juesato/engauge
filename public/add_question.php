@@ -16,6 +16,11 @@
             apologize("Please enter a question.");
         }
 
+        if (!isset($_SESSION["class_id"]))
+        {
+            $_SESSION["class_id"] = 0;
+            printf("BTW, you don't have a class id.");
+        }
 
         if (false !== query("INSERT INTO questions (class_id, asker_id, text, topic) VALUES (?, ?, ?, ?)", $_SESSION["class_id"], $_SESSION["id"], $_POST["question"], $_POST["topic"]))
         {
