@@ -26,6 +26,7 @@
             else {
                 $rows = query("SELECT LAST_INSERT_ID() AS id");
                 $id = $rows[0]["id"];
+                //Render something here?
                 printf("Thanks for registering!");
             }
             // print $wtf;
@@ -38,10 +39,3 @@
     }
 
 ?>
-<html>
-<a href="../templates/register_form.php">Register Form</a>
-<!-- <html>
-<h1>
-    Thanks for signing up!
-</h1>
-</html> -->
