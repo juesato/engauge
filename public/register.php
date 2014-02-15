@@ -17,11 +17,8 @@
             printf("Passwords must match");
         }
         else {
-<<<<<<< HEAD
-            $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
-=======
+            // $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
             $wtf = query("INSERT INTO users (username, user_type, password) VALUES(?, ?, ?)", $_POST["username"], "student", $_POST["password"]);
->>>>>>> 7add64686facccc384bb9776d8537a7a15f7ac0a
             if ($wtf === false) {
                 echo("Sorry, user already exists");
                 // print $wtf;
