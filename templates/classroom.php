@@ -38,8 +38,6 @@
 	<div class="container">
 
 	      		<?php
-					echo ("{$_SESSION['class_id']}");
-
 					$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
 					// dump($rows);
 					if ($rows !== false && count($rows) > 0) {
@@ -55,6 +53,9 @@
 					}
 				?>
 		<!-- add question form -->
+		<?php
+			// echo ($_SESSION['class_id']);
+		?>
 		<form action="../public/add_question.php" method="post">
 		    <fieldset>
 		        <div class="form-group col-lg-2">
