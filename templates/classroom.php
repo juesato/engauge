@@ -153,6 +153,14 @@
 								Show {$num_ans} Answers
 							</button>
 							</div>
+
+							<div class=\"pad15\">
+							<a href=\"../public/ta_claim.php?question_id={$row["id"]}\"> 
+								<button type=\"button\" class=\"btn btn-mini btn-success\" >
+									Claim for Answer
+								</button>
+							</a>
+							</div>
 							
 
 							<div class=\"panel-group\" id='answer_accordion'>
