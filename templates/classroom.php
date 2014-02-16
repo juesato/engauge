@@ -25,21 +25,6 @@
 	include("../NexmoPHP/NexmoReceipt.php");
 	include("../NexmoPHP/NexmoMessage.php");
 
-     $receipt = new NexmoReceipt();
-     if ($receipt->exists()) {
-     	echo ("YAY");
-         switch ($receipt->status) {
-             case $receipt::STATUS_DELIVERED:
-                 // The message was delivered to the handset!
-                 break;
-             
-             case $receipt::STATUS_FAILED:
-             case $receipt::STATUS_EXPIRED:
-                 // The message failed to be delivered
-                 break;
-         }
-     }
-
 	$sms = new NexmoMessage('1c7512a7', 'd77fd951');
 
 	$tmp = $sms->inboundText();
