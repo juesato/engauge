@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../public/boot/favicon.ico">
 
-        <title>Registration</title>
+        <title>Log In</title>
 
         <!-- Bootstrap core CSS -->
         <link href="../public/boot/bootstrap.css" rel="stylesheet">
