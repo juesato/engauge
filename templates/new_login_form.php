@@ -35,7 +35,7 @@
         </div>
 
         <div class = "footer-signin">
-            or <a href="../public/register.php">register</a> for an account
+            or <a href="../public/register.php">Register</a> for an account
         </div>
     </body>
 </html>

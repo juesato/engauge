@@ -81,6 +81,22 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Ask Anything!</h1>
+        <?php
+        	//Testing for general confusion level of the class.
+        	//Have a count of unanswered questions.
+        	$num_unanswered = 0;
+        	$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
+        	if ($rows !== false && count($rows) > 0) {
+				foreach($rows as $row) {
+        			$answs = query("SELECT * FROM answers WHERE question_id=  {$row['class_id']} ");
+        			if (count($answs) === 0) {
+        				$num_unanswered= $num_unanswered+1;
+        			}
+				}
+			}
+			echo ("<h2>{$num_unanswered} </h2>");
+        ?>
+        <h2> {$num_unanswered} </h2>
       </div>
 
     </div> <!-- /container -->
