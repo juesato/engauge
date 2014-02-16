@@ -6,7 +6,9 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // TODO
-        if (strlen($_POST["topic"] <= 1))
+        // dump($_POST["topic"] );
+        echo (strlen($_POST["topic"] ));
+        if (strlen($_POST["topic"]) <= 1)
         {
             apologize("Please enter a topic.");
         }
