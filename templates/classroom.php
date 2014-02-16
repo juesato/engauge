@@ -186,8 +186,17 @@
 									<img class='media-object' src='../public/img/cool_logo.jpg' alt='Alternative text yay'>
 								</a>
 									<div class='media-body'>
-									<h4 class='media-heading'>{$answerer_name}</h4>
-									{$answer["text"]}
+										<h4 class=\"media-heading\">
+										<div class=\"special_row\">
+											{$answerer_name}
+											<div class=\"col-md-4-super_special\">
+												{$question_datetime}
+											</div>
+										</div>
+										 </h4>
+										<div class=\"pad15-left\">
+										{$answer["text"]}
+										</div>
 									</div>
 								</div>
 					      	  </div>
