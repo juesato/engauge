@@ -168,6 +168,37 @@
 			echo ("
 				<div class = 'pad15-tb'><h1>Current Questions</h1></div>       
 			");
+			// display first clicker question if there are any
+			$clicker_qs = query("SELECT * FROM clicker_qs WHERE class_id={$_GET['class_id']}");
+			if (count($clicker_qs) >= 1 && $clicker_qs !== false) {
+				// dump ($clicker_qs);
+				$top_q = $clicker_qs[0];
+
+				echo ("
+					<div class='hero-unit'>
+					<form action=\"../public/clicker_response.php?clicker_id={$top_q['id']}\" method=\"post\">
+						<fieldset>
+						<div class=\"form-group\">							
+							<label class=\"checkbox-inline\">
+							<input type=\"checkbox\" name=\"inlineCheckbox1\" value=\"a\"> {$top_q['a']}
+							</label>
+							<label class=\"checkbox-inline\">
+							<input type=\"checkbox\" name=\"inlineCheckbox2\" value=\"b\"> {$top_q['b']}
+							</label>
+							<label class=\"checkbox-inline\">
+							<input type=\"checkbox\" name=\"inlineCheckbox3\" value=\"c\"> {$top_q['c']}
+							</label>
+							<label class=\"checkbox-inline\">
+							<input type=\"checkbox\" name=\"inlineCheckbox4\" value=\"d\"> {$top_q['d']}
+							</label>
+							<button type=\"submit\" class=\"btn btn-success\">Add Answer</button>
+						</div>
+						</fieldset>
+					</form>
+		 			</div>
+		 		");
+			}
+
 		}
     ?>
 
