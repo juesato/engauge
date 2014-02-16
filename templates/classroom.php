@@ -102,8 +102,8 @@
 	<?php
 		$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
 		// dump($rows);
-		$user = query("SELECT * FROM users WHERE id=  {$_SESSION['id']} ");
-		$user = $user[0];
+//		$user = query("SELECT * FROM users WHERE id=  {$_SESSION['id']} ");
+//		$user = $user[0];
 
 		if ($rows !== false && count($rows) > 0) {
 			foreach($rows as $row) {
@@ -151,6 +151,10 @@
 
 				if ($answers !== false && count($answers) > 0) {
 					foreach ($answers as $answer) {
+						$x = $answer["answerer_id"];
+						$user = query("SELECT * FROM users WHERE id=  {$x}");
+						$user = $user[0];
+
 						echo ( "
 							<div class=\"panel-body\">
 								<div class='media'>
