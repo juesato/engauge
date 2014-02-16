@@ -40,12 +40,18 @@
             printf("Answer added.\n");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
 
+            $user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+            $user = $user[0];
+            $phone_num = $user["phone"];
+
+
             $q = query("SELECT * FROM questions WHERE id=?", $qid);
             $cur_q = $q[0];
+            $msg = $_POST["answer"];
             if ($cur_q['phone_reply'] === 1) {
-                    include ( "NexmoMessage.php" );
+                    include ( "../NexmoPHP/NexmoMessage.php" );
                     $nexmo_sms = new NexmoMessage('1c7512a7', 'd77fd951'); //login kaixiao2@gmail.com, password: aaaaaa
-                    $info = $nexmo_sms->sendText( '+16179020747', '14844409618', 'This is your automated reply' );
+                    $info = $nexmo_sms->sendText( '+' . $phone, '14844409618', $msg );
                     echo $nexmo_sms->displayOverview($info);
             }
 
