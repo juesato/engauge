@@ -8,3 +8,33 @@
 {
 	padding: 15px;
 }
+.pad15-left
+{
+	padding-left: 15px;
+}
+
+.front
+{
+	z-index: 99;
+}
+.col-md-4-super_special{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 0px;
+  text-align:left;
+  font-size: smaller;
+  font-weight: lighter;
+
+}
+
+.special_row{
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-align: left;
+	font-size: smaller;
+	font-weight: medium;
+
+}
