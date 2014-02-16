@@ -15,6 +15,8 @@
 
         <!-- Custom styles for this template -->
         <link href="../public/css/signin.css" rel="stylesheet">
+        <link href="../public/css/background_login_register.css" rel="stylesheet">
+
     </head>
     <body>
         <div class = "container">

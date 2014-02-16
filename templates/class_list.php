@@ -12,6 +12,8 @@
 	</head>
 	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
 	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/css/background_login_register.css" rel="stylesheet">
+
 
 	<body>
 	<div class="container">
@@ -32,9 +34,9 @@
 
 
         <div class="hero-unit">
-    	<h1>Get EnGauged!</h1>
+    	<h1>Be EnGauged!</h1>
 
-    	<p>Stay up to speed in lectures by asking TA's and classmates through our online platform. Or help out a fellow students by answering their questions!</p>
+    	<p>Stay up to speed in lectures by asking TA's and classmates questions through our online platform. Or help out your fellow students by answering their questions!</p>
  		</div>
 
 		<hr>
