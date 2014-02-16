@@ -220,7 +220,7 @@
 							<h4 class=\"panel-title\">
 							<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
 								<div class=\"row\">
-									<div class=\"col-md-6 {$claim_status}\">{$row["topic"]}</div>
+									<div class=\"col-md-8 {$claim_status}\">{$row["topic"]}</div>
 									<div class=\"col-md-4-special\">{$username}</div>
 									<div class=\"col-md-2-special\">{$question_datetime}</div>
 
@@ -332,10 +332,9 @@
 	<hr>
 	<!-- add question form -->
 </div>
-<div class="blue">
 	<div class = "container">  
 
-	<div class = "cream"> <h2> Add a Question </h2> </div>
+	<div> <h2> Add a Question </h2> </div>
 	<form action="../public/add_question.php" method="post">
 	    <fieldset>
 	        <div class="form-group">
@@ -355,7 +354,6 @@
 	        </div>
 	    </fieldset>
 	</form>
-</div>
 </div>
 </body>
 </html>
