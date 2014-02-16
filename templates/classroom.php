@@ -123,15 +123,22 @@
 
 				$username = $row["anon"] ? "Anonymous" : $user["username"];
 
+				if ($row["claimed"] === 1) {
+					$claim_status = "claimed";
+				}
+				else {
+					$claim_status = "no"; //this isn't actually a css class
+				}
+
 				echo ( "
-				<div class=\"panel-group\" id=\"accordion\">
+				<div class=\"panel-group \" id=\"accordion\">
 					<div class=\"panel panel-default\">
 						
 						<div class=\"panel-heading\">
 							<h4 class=\"panel-title\">
 							<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
 								<div class=\"row\">
-									<div class=\"col-md-6\">{$row["topic"]}</div>
+									<div class=\"col-md-6 {$claim_status}\">{$row["topic"]}</div>
 									<div class=\"col-md-4-special\">{$username}</div>
 									<div class=\"col-md-2-special\">{$question_datetime}</div>
 
@@ -152,6 +159,14 @@
 							<button type=\"button\" class=\"btn btn-mini btn-info\" data-toggle=\"collapse\" data-parent='#answer_accordion' href='#ans{$row["id"]}'>
 								Show {$num_ans} Answers
 							</button>
+							</div>
+
+							<div class=\"pad15\">
+							<a href=\"../public/ta_claim.php?question_id={$row["id"]}\"> 
+								<button type=\"button\" class=\"btn btn-mini btn-success\" >
+									Claim for Answer
+								</button>
+							</a>
 							</div>
 							
 
