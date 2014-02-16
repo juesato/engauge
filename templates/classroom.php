@@ -197,6 +197,15 @@
 
 				$username = $row["anon"] ? "Anonymous" : $user["username"];
 
+//Testing if a professor or TA has addressed it.
+				// foreach($answers as $ans) {
+				// 	$ans_id = $ans["answerer_id"];
+				// 	$user = query("SELECT * FROM users WHERE id=  {$ans_id}");
+				// 	$user = $user[0];
+
+				// 	if ($user["user_type"])
+				// }
+
 				if ($row["claimed"] === 1) {
 					$claim_status = "claimed";
 				}
@@ -271,7 +280,7 @@
 							<div class=\"panel-body\">
 								<div class='media'>
 								<a class='pull-left' href='#'>
-									<img class='media-object' src='../public/img/cool_logo.jpg' alt='Alternative text yay'>
+									<img class='media-object img-circle' src='../public/img/cool_logo.jpg' alt='Alternative text yay'>
 								</a>
 									<div class='media-body'>
 										<h4 class=\"media-heading\">
@@ -302,13 +311,11 @@
 						<div class=\"form-group\">
 							<textarea class=\"form-control width-full\" rows=\"5\" name=\"answer\" placeholder=\"Post Answer Here\"/></textarea>
 						</div>
-						<div>
+						<div class=\"form-group\">
+							<button type=\"submit\" class=\"btn btn-success\">Add Answer</button>
 							<label class=\"checkbox-inline\">
 							<input type=\"checkbox\" name=\"inlineCheckbox1\" value=\"anon\"> Post Anonymously
 							</label>
-						</div>
-						<div class=\"form-group\">
-							<button type=\"submit\" class=\"btn btn-success\">Add Answer</button>
 						</div>
 						</fieldset>
 					</form>

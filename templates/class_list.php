@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
 	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
     <link href="../public/css/background_login_register.css" rel="stylesheet">
+    <link href="../public/css/custom.css" rel="stylesheet">
+
 
 
 	<body>
@@ -34,7 +36,7 @@
 
 
         <div class="hero-unit">
-    	<h1>Be EnGauged!</h1>
+    	<h1>Join a classroom!</h1>
 
     	<p>Stay up to speed in lectures by asking TA's and classmates questions through our online platform. Or help out your fellow students by answering their questions!</p>
  		</div>
@@ -42,7 +44,7 @@
 		<hr>
 
 		<div>
-		<table class="table table-striped table-hover">
+		<table class="table table-hover">
 	      <thead>
 	        <tr>
 	          <th>#</th>
@@ -60,7 +62,12 @@
 
 					if ($rows !== false && count($rows) > 0) {
 						foreach($rows as $row) {
-							echo ("<tr><td>{$row["id"]}</td><td>{$row["subject"]}</td><td>{$row["abbrev"]}</td><td>{$row["prof"]}</td>");
+							echo ("
+								<tr class ='img-rounded'>
+								<td>{$row["id"]}</td>
+								<td>{$row["subject"]}</td>
+								<td>{$row["abbrev"]}</td>
+								<td>{$row["prof"]}</td>");
 							$str = "<td><a href=\"classroom.php?class_id={$row["id"]}\" class=\"btn btn-success\">Enter Class</a></td>";
 							echo ( $str );
 							echo("</tr>");

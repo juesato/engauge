@@ -41,19 +41,29 @@
             printf("Answer added.\n");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
 
-            $user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
-            $user = $user[0];
-            $phone_num = $user["phone"];
-
 
             $q = query("SELECT * FROM questions WHERE id=?", $qid);
             $cur_q = $q[0];
+            $u_id = $cur_q["asker_id"];
+            $user = query("SELECT * FROM users WHERE id=  {$u_id}");
+            $user = $user[0];
+            $phone_num = $user["phone"];
+
+            $question_text = $cur_q["topic"];
+            if (strlen($question_text) > 15) {
+                $question_text = substr($question_text, 0 , 15) . "...";
+            }
+            $answerer = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+            $answerer = $answerer[0];
+            $answerer = $answerer["username"];
             $msg = $_POST["answer"];
+            $final_msg = "Question: " . $question_text . "\n" . $answerer . " answers: " . $msg;
+
             if ($cur_q['phone_reply'] === 1) {
-                    include ( "../NexmoPHP/NexmoMessage.php" );
+                    //include ( "../NexmoPHP/NexmoMessage.php" );
                     $intl_phone = '+' . $phone_num;
                     $nexmo_sms = new NexmoMessage('1c7512a7', 'd77fd951'); //login kaixiao2@gmail.com, password: aaaaaa
-                    $info = $nexmo_sms->sendText( $intl_phone, '14844409618', $msg );
+                    $info = $nexmo_sms->sendText( $intl_phone, '14844409618', $final_msg );
                     echo $nexmo_sms->displayOverview($info);
             }
 
