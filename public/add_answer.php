@@ -31,9 +31,11 @@
         $date = new DateTime();
         $parse_date = $date->format('Y-m-d H:i:s');
 
+        $active = isset($_POST["inlineCheckbox1"]) && $_POST["inlineCheckbox1"] ? 1 : 0;
 
 
-        if (false !== query("INSERT INTO answers (question_id, answerer_id, text, datetime) VALUES (?, ?, ?, ?)", $_SESSION["question_id"], $_SESSION["id"], $_POST["answer"], $parse_date))
+
+        if (false !== query("INSERT INTO answers (question_id, answerer_id, text, datetime, anon) VALUES (?, ?, ?, ?, ?)", $_SESSION["question_id"], $_SESSION["id"], $_POST["answer"], $parse_date, $active))
         {
             printf("Answer added.\n");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
