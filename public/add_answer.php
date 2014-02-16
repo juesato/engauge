@@ -35,7 +35,6 @@
         $active = isset($_POST["inlineCheckbox1"]) && $_POST["inlineCheckbox1"] ? 1 : 0;
 
 
-
         if (false !== query("INSERT INTO answers (question_id, answerer_id, text, datetime, anon) VALUES (?, ?, ?, ?, ?)", $_SESSION["question_id"], $_SESSION["id"], $_POST["answer"], $parse_date, $active))
         {
             printf("Answer added.\n");
