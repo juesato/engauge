@@ -143,9 +143,6 @@
 									<div class=\"col-md-2-special\">{$question_datetime}</div>
 
 								</div>
-
-								
-
 							</a>
 							</h4>
 						</div>
@@ -158,15 +155,25 @@
 				      		<div class=\"pad15\">
 							<button type=\"button\" class=\"btn btn-mini btn-info\" data-toggle=\"collapse\" data-parent='#answer_accordion' href='#ans{$row["id"]}'>
 								Show {$num_ans} Answers
-							</button>
-							</div>
+							</button> "
+				) ;
 
-							<div class=\"pad15\">
+				$user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+				$user = $user[0];
+				if ($user["user_type"] === 'TA' || $user["user_type"] === "professor" ) {
+					echo ("
 							<a href=\"../public/ta_claim.php?question_id={$row["id"]}\"> 
 								<button type=\"button\" class=\"btn btn-mini btn-success\" >
 									Claim for Answer
 								</button>
 							</a>
+					");
+				}
+				echo ( "
+							</div>
+
+							<div class=\"pad15\">
+
 							</div>
 							
 
