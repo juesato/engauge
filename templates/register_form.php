@@ -28,14 +28,18 @@
                         <input type="radio" name="user_type" value="professor"> Professor
                     </div>
                     <div class="form-group">
-                        <input autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+                        <input autofocus class="form-control" name="username" placeholder="*Username" type="text"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" name="password" placeholder="Password" type="password"/>
+                        <input class="form-control" name="password" placeholder="*Password" type="password"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" name="confirmation" placeholder="Password again" type="password"/>
+                        <input class="form-control" name="confirmation" placeholder="*Password again" type="password"/>
                     </div>
+                    <div class="form-group">
+                        <input class="form-control" name="phone" placeholder="Phone: ##########" type="text"/>
+                    </div>
+
                     <div class="form-button">
                         <button type="submit" class="btn btn-lg btn-primary btn-block">Register Now!</button>
                     </div>
