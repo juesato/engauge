@@ -17,6 +17,11 @@
 {
 	z-index: 99;
 }
+
+.claimed
+{
+	color: #FF6600;
+}
 .col-md-4-super_special{
   position: relative;
   min-height: 1px;
