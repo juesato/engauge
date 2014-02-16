@@ -11,8 +11,7 @@
 		<title>Engage </title>
 	</head>
 	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
-
-
+	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
 
 	<body>
 	<div class="container">
@@ -26,10 +25,13 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Classes</a></li>
                     <li><a href="#">Help</a></li>
-                    <li><a href="#">Contact</a></li>
                   </ul>
+	              <ul class="nav navbar-nav navbar-right">
+	                <li><a href="../public/logout.php">Logout</a></li>
+	              </ul>
                 </div>
             </div>
+
         </div>
 
 
