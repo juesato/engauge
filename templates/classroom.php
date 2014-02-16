@@ -211,6 +211,12 @@
 				else {
 					$claim_status = "no"; //this isn't actually a css class
 				}
+				if ($row["resolved"] === 1) {
+					$resolve_status = "resolved";
+				}
+				else {
+					$resolve_status = "no";
+				}
 
 				echo ( "
 				<div class=\"panel-group \" id=\"accordion\">
@@ -220,7 +226,7 @@
 							<h4 class=\"panel-title\">
 							<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
 								<div class=\"row\">
-									<div class=\"col-md-8 {$claim_status}\">{$row["topic"]}</div>
+									<div class=\"col-md-8 {$claim_status} {$resolve_status}\">{$row["topic"]}</div>
 									<div class=\"col-md-4-special\">{$username}</div>
 									<div class=\"col-md-2-special\">{$question_datetime}</div>
 
@@ -235,7 +241,7 @@
 			      			</div> 
 			      		
 				      		<div class=\"pad15\">
-							<button type=\"button\" class=\"btn btn-mini btn-info\" data-toggle=\"collapse\" data-parent='#answer_accordion' href='#ans{$row["id"]}'>
+							<button type=\"button\" class=\"btn btn-mini btn-primary\" data-toggle=\"collapse\" data-parent='#answer_accordion' href='#ans{$row["id"]}'>
 								Show {$num_ans} Answers
 							</button> "
 				) ;
@@ -245,8 +251,17 @@
 				if ($user["user_type"] === 'TA' || $user["user_type"] === "professor" ) {
 					echo ("
 							<a href=\"../public/ta_claim.php?question_id={$row["id"]}\"> 
-								<button type=\"button\" class=\"btn btn-mini btn-success\" >
+								<button type=\"button\" class=\"btn btn-mini btn-info\" >
 									Claim for Answer
+								</button>
+							</a>
+					");
+				}
+				if ($user["id"] === $row["asker_id"]) {
+					echo ("
+							<a href=\"../public/mark_resolved.php?question_id={$row["id"]}\"> 
+								<button type=\"button\" class=\"btn btn-mini btn-success\" >
+									Question resolved
 								</button>
 							</a>
 					");

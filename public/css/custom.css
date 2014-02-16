@@ -29,7 +29,12 @@
 	z-index: 99;
 }
 
+
 .claimed
+{
+  color: #2f96b4;
+}
+.resolved
 {
 	color: #47a447;
 }

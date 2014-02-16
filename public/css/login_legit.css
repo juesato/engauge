@@ -1,0 +1,11 @@
+#school-bg {
+ margin: 0;
+ background-image: url('../img/school.jpg');
+ background-repeat:no-repeat;
+/* display: compact;
+*/ font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: 100% cover;
+}
