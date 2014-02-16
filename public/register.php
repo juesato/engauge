@@ -21,7 +21,13 @@
         }
         else {
             // $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));
-            $wtf = query("INSERT INTO users (username, user_type, password) VALUES(?, ?, ?)", $_POST["username"], $_POST["user_type"], $_POST["password"]);
+            if (!isset($_POST["phone"])) {
+                $wtf = query("INSERT INTO users (username, user_type, password) VALUES(?, ?, ?)", $_POST["username"], $_POST["user_type"], $_POST["password"]);
+            }
+            else {
+                $wtf = query("INSERT INTO users (username, user_type, password, phone) VALUES(?, ?, ?, ?)", $_POST["username"], $_POST["user_type"], $_POST["password"], $_POST["phone"]);
+            }
+
             if ($wtf === false) {
                 apologize("That username already exists");
                 // print $wtf;
