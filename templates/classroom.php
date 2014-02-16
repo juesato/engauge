@@ -15,6 +15,7 @@
     <link href="../public/css/bootstrap.min.css" rel="stylesheet">
     <link href="../public/css/background_login_register.css" rel="stylesheet">
 
+
     <!-- Custom styles for this template -->
     <script src="../public/js/bootstrap.js"></script>
 
@@ -154,9 +155,7 @@
 		}
 		else {
 			echo ("
-				<div class='jumbotron'>
-					<h1>Ask Anything!</h1>       
-				</div>
+				<div class = 'pad15-tb'><h1>Current Questions</h1></div>       
 			");
 		}
     ?>
@@ -172,7 +171,8 @@
 <script>
 </script>
 
-<div class="container">  
+<div class="blue">  
+<div class = "container">
 	<?php
 		$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
 		// dump($rows);
@@ -332,8 +332,8 @@
 
 	<hr>
 	<!-- add question form -->
-<div class="dark-bg">
-	<h2> Add a Question </h2>
+<div>
+	<div class = "cream"> <h2> Add a Question </h2> </div>
 	<form action="../public/add_question.php" method="post">
 	    <fieldset>
 	        <div class="form-group">
@@ -354,7 +354,7 @@
 	    </fieldset>
 	</form>
 </div>
-
+</div>
 </div>
 </body>
 </html>

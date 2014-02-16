@@ -10,8 +10,8 @@
 		<meta charset="utf-8">
 		<title>Engauged</title>
 	</head>
-	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
 	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
     <link href="../public/css/background_login_register.css" rel="stylesheet">
     <link href="../public/css/custom.css" rel="stylesheet">
 
@@ -19,7 +19,6 @@
 
 	<body>
 	<div class="container">
-
 		<div class="navbar">
         	<div class="navbar-inner">
         		<div class="container">
@@ -44,7 +43,7 @@
 		<hr>
 
 		<div>
-		<table class="table table-hover">
+		<table class="table table-striped table-hover">
 	      <thead>
 	        <tr>
 	          <th>#</th>
