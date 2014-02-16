@@ -7,17 +7,17 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // TODO
-        if (!isset($_POST["username"])) {
-            printf("Please enter a username you idiot");
+        if (0 == strlen($_POST["username"])) {
+            apologize("Please enter a username you idiot");
         }
-        elseif (!isset($_POST["password"])) {
-            printf("Enter a password");
+        elseif (0 == strlen($_POST["password"])) {
+            apologize("Enter a password");
         }
         elseif ($_POST["password"] != $_POST["confirmation"]) {
-            printf("Passwords must match");
+            apologize("Passwords must match");
         }
-        if (!isset($_POST["user_type"])) {
-            printf("Please select what type of user you are");
+        elseif (!isset($_POST["user_type"])) {
+            apologize("Please select what type of user you are");
         }
         else {
             // $wtf = query("INSERT INTO users (username, password) VALUES(?, ?)", $_POST["username"], crypt($_POST["password"]));

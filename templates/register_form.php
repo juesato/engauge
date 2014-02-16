@@ -19,7 +19,7 @@
 
     <body>
         <div class = "container">
-            <form class = "form-register" role = "form" action="../public/register.php" method="post">
+            <form class = "form-register" role = "form" action="../public/register.php" method="POST">
                 <h2 class="form-register-heading">Register an Account   </h2>
                 <fieldset>
                     <div class="form-radio">
