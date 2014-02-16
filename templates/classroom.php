@@ -19,6 +19,40 @@
 
   </head>
 
+<?php
+	echo ("CHECK");
+	include("../NexmoPHP/NexmoAccount.php");
+	include("../NexmoPHP/NexmoReceipt.php");
+	include("../NexmoPHP/NexmoMessage.php");
+
+     $receipt = new NexmoReceipt();
+     if ($receipt->exists()) {
+     	echo ("YAY");
+         switch ($receipt->status) {
+             case $receipt::STATUS_DELIVERED:
+                 // The message was delivered to the handset!
+                 break;
+             
+             case $receipt::STATUS_FAILED:
+             case $receipt::STATUS_EXPIRED:
+                 // The message failed to be delivered
+                 break;
+         }
+     }
+
+	$sms = new NexmoMessage('1c7512a7', 'd77fd951');
+
+	$tmp = $sms->inboundText();
+	if ($tmp === false) {
+		echo ("WHOA");
+	}
+	echo ("Huh $tmp");
+
+    if ($sms->inboundText()) {
+         $sms->reply('You said: ' . $sms->text);
+    }
+?>
+
   <body>
 
     <div class="container">
@@ -79,9 +113,66 @@
       </div>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Ask Anything!</h1>
-      </div>
+    <?php
+    	//Testing for general confusion level of the class.
+    	//Have a count of unanswered questions.
+		$user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+		$user = $user[0];
+
+		if ($user["user_type"] === 'TA' || $user["user_type"] === "professor") {
+        	$num_unanswered = 0;
+        	$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
+        	if ($rows !== false && count($rows) > 0) {
+				foreach($rows as $row) {
+        			$answs = query("SELECT * FROM answers WHERE question_id=  {$row['id']} ");
+        			if (count($answs) === 0) {
+        				$num_unanswered= $num_unanswered+1;
+        			}
+				}
+			}
+			if ($num_unanswered < 1) {
+				echo ("
+					<div class='alert alert-success'>
+					<strong>Nice!</strong> No students are confused.
+					</div>
+				");
+			}
+			elseif ($num_unanswered < 2) {
+				echo ("						
+					<div class='alert alert-info'>
+					<strong>Nice!</strong> Only {$num_unanswered} student is confused.
+					</div>
+					");
+			}
+			elseif ($num_unanswered < 4) {
+				echo ("						
+					<div class='alert alert-info'>
+					<strong>Nice!</strong> Only {$num_unanswered} students are confused.
+					</div>
+					");
+			}
+			elseif ($num_unanswered < 8) {
+				echo ("						
+					<div class='alert alert-warning'>
+					<strong>Warning!</strong> {$num_unanswered} students are confused.
+					</div>
+					");
+			}
+			else {
+				echo ("						
+					<div class='alert alert-danger'>
+					<strong>Danger!</strong> {$num_unanswered} students are confused!
+					</div>
+					");
+			}
+		}
+		else {
+			echo ("
+				<div class='jumbotron'>			
+				<h1>Ask Anything!</h1>       
+				</div>");
+		}
+    ?>
 
     </div> <!-- /container -->
 

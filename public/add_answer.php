@@ -1,6 +1,7 @@
 <?php
     // configuration
     require("../includes/config.php");
+    include("../NexmoPHP/NexmoMessage.php");
 
     $_SESSION["question_id"] = $_GET["question_id"];
     $qid = $_GET["question_id"];
@@ -50,8 +51,9 @@
             $msg = $_POST["answer"];
             if ($cur_q['phone_reply'] === 1) {
                     include ( "../NexmoPHP/NexmoMessage.php" );
+                    $intl_phone = '+' . $phone_num;
                     $nexmo_sms = new NexmoMessage('1c7512a7', 'd77fd951'); //login kaixiao2@gmail.com, password: aaaaaa
-                    $info = $nexmo_sms->sendText( '+' . $phone, '14844409618', $msg );
+                    $info = $nexmo_sms->sendText( $intl_phone, '14844409618', $msg );
                     echo $nexmo_sms->displayOverview($info);
             }
 

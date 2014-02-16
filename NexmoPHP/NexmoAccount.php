@@ -16,7 +16,7 @@
  */
 
 	class NexmoAccount {
-		private $nx_key = '';
+		private $nx_key = ''; //i set this variables to kai's values
 		private $nx_secret = '';
 
 		public $rest_base_url = 'https://rest.nexmo.com/';
