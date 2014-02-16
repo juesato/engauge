@@ -121,6 +121,8 @@
 				$num_ans = count($answers);
 				$question_datetime = $row["datetime"];
 
+				$username = $row["anon"] ? "Anonymous" : $user["username"];
+
 				echo ( "
 				<div class=\"panel-group\" id=\"accordion\">
 					<div class=\"panel panel-default\">
@@ -130,7 +132,7 @@
 							<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
 								<div class=\"row\">
 									<div class=\"col-md-6\">{$row["topic"]}</div>
-									<div class=\"col-md-4-special\">{$user["username"]}</div>
+									<div class=\"col-md-4-special\">{$username}</div>
 									<div class=\"col-md-2-special\">{$question_datetime}</div>
 
 								</div>
@@ -164,8 +166,10 @@
 				if ($answers !== false && count($answers) > 0) {
 					foreach ($answers as $answer) {
 						$answerer_id = $answer["answerer_id"];
-						$user = query("SELECT * FROM users WHERE id=  {$answerer_id}");
-						$user = $user[0];
+						$answerer = query("SELECT * FROM users WHERE id=  {$answerer_id}");
+						$answerer = $answerer[0];
+
+						$answerer_name = $answer["anon"] ? "Anonymous" : $answerer["username"];
 
 						echo ( "
 							<div class=\"panel-body\">
@@ -174,7 +178,7 @@
 									<img class='media-object' src='../public/img/cool_logo.jpg' alt='Alternative text yay'>
 								</a>
 									<div class='media-body'>
-									<h4 class='media-heading'>{$user["username"]}</h4>
+									<h4 class='media-heading'>{$answerer_name}</h4>
 									{$answer["text"]}
 									</div>
 								</div>
@@ -195,7 +199,7 @@
 						</div>
 						<div>
 							<label class=\"checkbox-inline\">
-							<input type=\"checkbox\" id=\"inlineCheckbox1\" value=\"anon\"> Post Anonymously
+							<input type=\"checkbox\" name=\"inlineCheckbox1\" value=\"anon\"> Post Anonymously
 							</label>
 						</div>
 						<div class=\"form-group\">
@@ -230,7 +234,7 @@
 
 	        <div>
 				<label class="checkbox-inline">
-				  <input type="checkbox" id="inlineCheckbox1" value="anon"> Post Anonymously
+				  <input type="checkbox" name="inlineCheckbox1" value="anon"> Post Anonymously
 				</label>
 			</div>
 

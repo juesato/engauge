@@ -27,7 +27,9 @@
         $date = new DateTime();
         $parse_date = $date->format('Y-m-d H:i:s');
 
-        if (false !== query("INSERT INTO questions (class_id, asker_id, text, topic, datetime) VALUES (?, ?, ?, ?, ?)", $_SESSION['class_id'], $_SESSION["id"], $_POST["question"], $_POST["topic"], $parse_date))
+        $active = isset($_POST["inlineCheckbox1"]) && $_POST["inlineCheckbox1"] ? 1 : 0;
+
+        if (false !== query("INSERT INTO questions (class_id, asker_id, text, topic, datetime, anon) VALUES (?, ?, ?, ?, ?, ?)", $_SESSION['class_id'], $_SESSION["id"], $_POST["question"], $_POST["topic"], $parse_date, $active))
         {
             printf("Question added to class {$_SESSION['class_id']}.");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
