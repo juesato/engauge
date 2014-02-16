@@ -3,6 +3,7 @@
     require("../includes/config.php");
 
     $_SESSION["question_id"] = $_GET["question_id"];
+    $qid = $_GET["question_id"];
     // if form was submitted;
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -39,6 +40,16 @@
         {
             printf("Answer added.\n");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
+
+            $q = query("SELECT * FROM questions WHERE id=?", $qid);
+            $cur_q = $q[0];
+            if ($cur_q['phone_reply'] === 1) {
+                    include ( "NexmoMessage.php" );
+                    $nexmo_sms = new NexmoMessage('1c7512a7', 'd77fd951'); //login kaixiao2@gmail.com, password: aaaaaa
+                    $info = $nexmo_sms->sendText( '+16179020747', '14844409618', 'This is your automated reply' );
+                    echo $nexmo_sms->displayOverview($info);
+            }
+
             redirect("../templates/classroom.php?class_id={$_SESSION["class_id"]}");
         }
 
