@@ -13,7 +13,7 @@
         }
 
 
-        if (false !== query("INSERT INTO classes (prof, subject) VALUES (?, ?)", $_POST["professorname"], $_POST["newclass"]))    
+        if (false !== query("INSERT INTO classes (prof, abbrev, subject) VALUES (?, ?, ?)", $_POST["professorname"], $_POST["abbreviation"], $_POST["newclass"]))    
         {
             redirect("../templates/class_list.php");
         }

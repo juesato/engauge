@@ -337,14 +337,12 @@
 	            <textarea class="form-control width-full" rows="8" name="question" placeholder="Post Question Here"/></textarea>
 	        </div>
 
-	        <div>
-				<label class="checkbox-inline">
-				  <input type="checkbox" name="inlineCheckbox1" value="anon"> Post Anonymously
-				</label>
-			</div>
-
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-success">Submit</button>
+	            <label class="checkbox-inline">
+				  <input type="checkbox" name="inlineCheckbox1" value="anon"> Post Anonymously
+				</label>
+
 	        </div>
 	    </fieldset>
 	</form>

@@ -47,6 +47,7 @@
 	        <tr>
 	          <th>#</th>
 	          <th>Class Subject</th>
+	          <th>Abbreviation</th>
 	          <th>Professor</th>
 	          <th> </th>
 	        </tr>
@@ -59,7 +60,7 @@
 
 					if ($rows !== false && count($rows) > 0) {
 						foreach($rows as $row) {
-							echo ("<tr><td>{$row["id"]}</td><td>{$row["subject"]}</td><td>{$row["prof"]}</td>");
+							echo ("<tr><td>{$row["id"]}</td><td>{$row["subject"]}</td><td>{$row["abbrev"]}</td><td>{$row["prof"]}</td>");
 							$str = "<td><a href=\"classroom.php?class_id={$row["id"]}\" class=\"btn btn-success\">Enter Class</a></td>";
 							echo ( $str );
 							echo("</tr>");
@@ -79,10 +80,13 @@
 							<hr>
 							<form action='../public/add_class.php' method='post'>
 								<fieldset>
-								<div class='form-group span4'>
+								<div class='form-group span7'>
 									<textarea rows='1' autofocus class='form-control' name='newclass' placeholder='Post New Class Here' type='text'/></textarea>
 								</div>
 								<div class='form-group span4'>
+									<textarea rows='1' class='form-control' name='abbreviation' placeholder='Abbreviation' type='text'/></textarea>
+								</div>
+								<div class='form-group span7'>
 									<textarea rows='1' class='form-control' name='professorname' placeholder='Professor Name' type='text'/></textarea>
 								</div>
 								<div class='form-group span4'>
