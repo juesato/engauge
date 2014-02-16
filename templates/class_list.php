@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Engauged</title>
+		<title>EnGauge</title>
 	</head>
 	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">

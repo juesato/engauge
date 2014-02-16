@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../public/boot/favicon.ico">
 
-    <title>Welcome to the classroom!</title>
+    <title>EnGauge - Classroom</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../public/css/bootstrap.css" rel="stylesheet">
