@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../public/css/bootstrap.css" rel="stylesheet">
     <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/css/background_login_register.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <script src="../public/js/bootstrap.js"></script>
@@ -20,7 +21,7 @@
   </head>
 
 <?php
-	echo ("CHECK");
+	//echo ("CHECK");
 	include("../NexmoPHP/NexmoAccount.php");
 	include("../NexmoPHP/NexmoReceipt.php");
 	include("../NexmoPHP/NexmoMessage.php");
@@ -29,9 +30,9 @@
 
 	$tmp = $sms->inboundText();
 	if ($tmp === false) {
-		echo ("WHOA");
+		//echo ("WHOA");
 	}
-	echo ("Huh $tmp");
+	//echo ("Huh $tmp");
 
     if ($sms->inboundText()) {
          $sms->reply('You said: ' . $sms->text);
@@ -153,16 +154,14 @@
 		}
 		else {
 			echo ("
-				<div class='jumbotron'>			
-				<h1>Ask Anything!</h1>       
-				</div>");
+				<div class='jumbotron'>
+					<h1>Ask Anything!</h1>       
+				</div>
+			");
 		}
     ?>
 
-    </div> <!-- /container -->
-
-<html>
-<body>
+</div> <!-- /container -->
 
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css/">
 <link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
@@ -172,7 +171,6 @@
 <script src="../public/js/bootstrap.js"></script>
 <script>
 </script>
-
 
 <div class="container">  
 	<?php
