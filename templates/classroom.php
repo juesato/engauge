@@ -71,23 +71,6 @@
 			?>
           </div>
           <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-
-              <!--<li class="active"><a href="#">Class List</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>-->
-            </ul>
             <ul class="nav navbar-nav navbar-right">
             	<a class="btn btn-lg btn-primary" href="../templates/class_list.php" role="button">Back to Class List &raquo;</a>
             	<a class="btn btn-lg btn-danger" href="../public/logout.php">Logout</a>
@@ -107,6 +90,7 @@
 		$user = $user[0];
 
 		if ($user["user_type"] === 'TA' || $user["user_type"] === "professor") {
+
         	$num_unanswered = 0;
         	$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
         	if ($rows !== false && count($rows) > 0) {
@@ -152,6 +136,33 @@
 					</div>
 					");
 			}
+			//add clicker question
+			echo ("
+				<div class='hero-unit'>
+	    			<form action=\"../public/add_clicker_q.php?class_id={$_GET['class_id']}\" method=\"post\">
+						<fieldset>
+						<div class=\"form-group\">
+							<input class=\"form-control width-full\" name=\"q_text\" placeholder=\"Enter question\"/>
+						</div>
+						<div class=\"form-group\">
+							<input class=\"form-control width-full\" name=\"ans_a\" placeholder=\"Answer Choice A\"/>
+						</div>
+						<div class=\"form-group\">
+							<input class=\"form-control width-full\" name=\"ans_b\" placeholder=\"Answer Choice B\"/>
+						</div>
+						<div class=\"form-group\">
+							<input class=\"form-control width-full\" name=\"ans_c\" placeholder=\"Answer Choice C\"/>
+						</div>
+						<div class=\"form-group\">
+							<input class=\"form-control width-full\" name=\"ans_d\" placeholder=\"Answer Choice D\"/>
+						</div>
+						<div class=\"form-group\">
+							<button type=\"submit\" class=\"btn btn-success\">Add Participation Question</button>
+						</div>
+						</fieldset>
+					</form>
+	 			</div>
+	 		");
 		}
 		else {
 			echo ("

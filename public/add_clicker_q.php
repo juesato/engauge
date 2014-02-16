@@ -5,18 +5,7 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        // TODO
-        // dump($_POST["topic"] );
-        echo (strlen($_POST["topic"] ));
-        if (strlen($_POST["topic"]) <= 1)
-        {
-            apologize("Please enter a topic.");
-        }
-
-        // if (!isset($_POST["question"]))
-        // {
-        //     apologize("Please enter a question.");
-        // }
+        $class = $_GET["class_id"];
 
         if (!isset($_SESSION["class_id"]))
         {
@@ -24,12 +13,9 @@
             printf("BTW, you don't have a class id.");
         }
 
-        $date = new DateTime();
-        $parse_date = $date->format('Y-m-d H:i:s');
-
-        if (false !== query("INSERT INTO questions (class_id, asker_id, text, topic, datetime) VALUES (?, ?, ?, ?, ?)", $_SESSION['class_id'], $_SESSION["id"], $_POST["question"], $_POST["topic"], $parse_date))
+        if (false !== query("INSERT INTO clicker_qs (class_id, question, a, b, c, d) VALUES (?, ?, ?, ?, ?, ?)", $class, $_POST["q_text"], $_POST["ans_a"], $_POST['ans_b'], $_POST['ans_c'], $_POST['ans_d']) )
         {
-            printf("Question added to class {$_SESSION['class_id']}.");
+            printf("Clicker question added to class {$class}.");
             echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
             redirect("../templates/classroom.php?class_id={$_SESSION["class_id"]}");
         }
@@ -38,7 +24,6 @@
         {
             apologize("Your question sucks");
         }
-
 
     }
     else {
