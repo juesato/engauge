@@ -64,27 +64,33 @@
 						}
 					}
 
+				?>
+	      </tbody>
+	    </table>
+
+<?php
 					$user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
 					$user = $user[0];
 
 					if ($user["user_type"]==="professor") {
 						echo("
-						<div class = 'container'>
+							<hr>
 							<form action='../public/add_class.php' method='post'>
 								<fieldset>
-								<div class='form-group'>
-									<input autofocus class='form-control width-full' name='newclass' placeholder='Post New Class Here' type='text'/>
+								<div class='form-group span4'>
+									<textarea rows='1' autofocus class='form-control' name='newclass' placeholder='Post New Class Here' type='text'/></textarea>
+								</div>
+								<div class='form-group span4'>
+									<textarea rows='1' class='form-control' name='professorname' placeholder='Professor Name' type='text'/></textarea>
+								</div>
+								<div class='form-group span4'>
+									<button type='submit' class='btn btn-md btn-primary btn-block'>Add Class</button>
 								</div>
 								</fieldset>
 							</form>
-						</div>
 						");
 					}
-				?>
-	      </tbody>
-	    </table>
-
-
+?>
 		</div>
 
     </div>

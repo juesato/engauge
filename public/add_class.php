@@ -28,12 +28,12 @@
         //$parse_date = $date->format('Y-m-d H:i:s');
 
         //$active = isset($_POST["inlineCheckbox1"]) && $_POST["inlineCheckbox1"] ? 1 : 0;
-        $user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
-        $user = $user[0];
+        //$user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+        //$user = $user[0];
 
 
-        $profname = $user["username"];
-        if (false !== query("INSERT INTO classes (prof, subject) VALUES (?, ?)", $profname, $_POST["newclass"]))    
+        //$profname = $user["username"];
+        if (false !== query("INSERT INTO classes (prof, subject) VALUES (?, ?)", $_POST["professorname"], $_POST["newclass"]))    
         {
         //    printf("Class added to classes.");
         //    echo ("<a href=\"../templates/classroom.php?class_id={$_SESSION["id"]}\"> Return </a> to class");
