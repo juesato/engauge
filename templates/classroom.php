@@ -11,6 +11,7 @@
     <title>Welcome to the classroom!</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
     <link href="../public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -101,6 +102,9 @@
 	<?php
 		$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
 		// dump($rows);
+		$user = query("SELECT * FROM users WHERE id=  {$_SESSION['id']} ");
+		$user = $user[0];
+
 		if ($rows !== false && count($rows) > 0) {
 			foreach($rows as $row) {
 
@@ -148,8 +152,16 @@
 				if ($answers !== false && count($answers) > 0) {
 					foreach ($answers as $answer) {
 						echo ( "
-						      <div class=\"panel-body\">
-						      	{$answer["text"]}
+							<div class=\"panel-body\">
+								<div class='media'>
+								<a class='pull-left' href='#'>
+									<img class='media-object' src='../public/img/cool_logo.jpg' alt='Alternative text yay'>
+								</a>
+									<div class='media-body'>
+									<h4 class='media-heading'>{$user["username"]}</h4>
+									{$answer["text"]}
+									</div>
+								</div>
 					      	  </div>
 					    	"
 						);	  
