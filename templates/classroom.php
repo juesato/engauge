@@ -105,8 +105,13 @@
 //		$user = query("SELECT * FROM users WHERE id=  {$_SESSION['id']} ");
 //		$user = $user[0];
 
+
 		if ($rows !== false && count($rows) > 0) {
 			foreach($rows as $row) {
+
+				$asker_id = $row["asker_id"];
+				$user = query("SELECT * FROM users WHERE id=  {$asker_id}");
+				$user = $user[0];
 
 				// echo("<div> Topic is {$row["topic"]} </div>");
 				// echo("<div> Question: {$row["text"]} </div>");
@@ -114,8 +119,7 @@
 				$answers = query("SELECT * FROM answers WHERE question_id={$row["id"]} ");
 
 				$num_ans = count($answers);
-
-
+				$question_datetime = $row["datetime"];
 
 				echo ( "
 				<div class=\"panel-group\" id=\"accordion\">
@@ -124,7 +128,15 @@
 						<div class=\"panel-heading\">
 							<h4 class=\"panel-title\">
 							<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$row['id']}\">
-								{$row["topic"]}
+								<div class=\"row\">
+									<div class=\"col-md-6\">{$row["topic"]}</div>
+									<div class=\"col-md-4-special\">{$user["username"]}</div>
+									<div class=\"col-md-2-special\">{$question_datetime}</div>
+
+								</div>
+
+								
+
 							</a>
 							</h4>
 						</div>
@@ -151,8 +163,8 @@
 
 				if ($answers !== false && count($answers) > 0) {
 					foreach ($answers as $answer) {
-						$x = $answer["answerer_id"];
-						$user = query("SELECT * FROM users WHERE id=  {$x}");
+						$answerer_id = $answer["answerer_id"];
+						$user = query("SELECT * FROM users WHERE id=  {$answerer_id}");
 						$user = $user[0];
 
 						echo ( "
@@ -179,7 +191,7 @@
 					<form action=\"../public/add_answer.php?question_id={$row["id"]}\" method=\"post\">
 						<fieldset>
 						<div class=\"form-group\">
-							<textarea class=\"form-control width-full\" rows=\"5\" name=\"answer\" /> </textarea>
+							<textarea class=\"form-control width-full\" rows=\"5\" name=\"answer\" placeholder=\"Post Answer Here\"/></textarea>
 						</div>
 						<div>
 							<label class=\"checkbox-inline\">
@@ -209,11 +221,11 @@
 	<form action="../public/add_question.php" method="post">
 	    <fieldset>
 	        <div class="form-group">
-	            <input autofocus class="form-control width-full" name="topic" placeholder="Post Question Here" type="text"/>
+	            <input autofocus class="form-control width-full" name="topic" placeholder="Question Topic" type="text"/>
 	        </div>
 
 	        <div class="form-group">
-	            <textarea class="form-control width-full" rows="8" name="question" /> </textarea>
+	            <textarea class="form-control width-full" rows="8" name="question" placeholder="Post Question Here"/></textarea>
 	        </div>
 
 	        <div>

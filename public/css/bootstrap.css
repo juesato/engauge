@@ -886,6 +886,25 @@ pre code {
   padding-left: 15px;
 }
 
+.col-md-4-special{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: right;
+  font-size: smaller;
+  font-weight: medium;
+}
+.col-md-2-special{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: right;
+  font-size: smaller;
+  font-weight: lighter;
+}
+
 .col-xs-1,
 .col-xs-2,
 .col-xs-3,
