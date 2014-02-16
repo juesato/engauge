@@ -23,6 +23,7 @@ body {
   font-weight: normal;
 }
 .form-register .form-radio {
+  padding-top: 10px;
   margin-bottom: 8px;
 }
 .form-register .form-control {
