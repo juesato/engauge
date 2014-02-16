@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Engage </title>
+		<title>Engauged</title>
 	</head>
 	<link rel="stylesheet" href="../public/boot/bootstrap.css"  type="text/css/">
 	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
@@ -16,15 +16,11 @@
 	<body>
 	<div class="container">
 
-		<h1><a href="#">Engage</a></h1>
-
 		<div class="navbar">
         	<div class="navbar-inner">
         		<div class="container">
                   <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Classes</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="#">EnGauge</a></li>
                   </ul>
 	              <ul class="nav navbar-nav navbar-right">
 	                <li><a href="../public/logout.php">Logout</a></li>
@@ -36,12 +32,10 @@
 
 
         <div class="hero-unit">
-    	<h1>Marketing stuff!</h1>
+    	<h1>Get EnGauged!</h1>
 
-    	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
- 
-	    <a href="#" class="btn btn-large btn-success">Get Started</a>
-		</div>
+    	<p>Stay up to speed in lectures by asking TA's and classmates through our online platform. Or help out a fellow students by answering their questions!</p>
+ 		</div>
 
 		<hr>
 
@@ -68,6 +62,23 @@
 							echo ( $str );
 							echo("</tr>");
 						}
+					}
+
+					$user = query("SELECT * FROM users WHERE id=  {$_SESSION["id"]}");
+					$user = $user[0];
+
+					if ($user["user_type"]==="professor") {
+						echo("
+						<div class = 'container'>
+							<form action='../public/add_class.php' method='post'>
+								<fieldset>
+								<div class='form-group'>
+									<input autofocus class='form-control width-full' name='newclass' placeholder='Post New Class Here' type='text'/>
+								</div>
+								</fieldset>
+							</form>
+						</div>
+						");
 					}
 				?>
 	      </tbody>
