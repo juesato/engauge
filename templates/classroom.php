@@ -171,7 +171,6 @@
 <script>
 </script>
 
-<div class="blue">  
 <div class = "container">
 	<?php
 		$rows = query("SELECT * FROM questions WHERE class_id=  {$_SESSION['class_id']} ");
@@ -332,7 +331,10 @@
 
 	<hr>
 	<!-- add question form -->
-<div>
+</div>
+<div class="blue">
+	<div class = "container">  
+
 	<div class = "cream"> <h2> Add a Question </h2> </div>
 	<form action="../public/add_question.php" method="post">
 	    <fieldset>
@@ -347,13 +349,12 @@
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-success">Submit</button>
 	            <label class="checkbox-inline">
-				  <input type="checkbox" name="inlineCheckbox1" value="anon"> Post Anonymously
+				  <input type="checkbox" name="inlineCheckbox1" value="anon" class = "cream"> Post Anonymously
 				</label>
 
 	        </div>
 	    </fieldset>
 	</form>
-</div>
 </div>
 </div>
 </body>
