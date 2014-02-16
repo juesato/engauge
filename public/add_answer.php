@@ -1,7 +1,7 @@
 <?php
     // configuration
     require("../includes/config.php");
-    include("../NexmoPHP/NexmoMessage.php")
+    include("../NexmoPHP/NexmoMessage.php");
 
     $_SESSION["question_id"] = $_GET["question_id"];
     $qid = $_GET["question_id"];
